@@ -1,0 +1,494 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RentACarModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="RentACarModelStoreContainer">
+          <EntitySet Name="Kategori" EntityType="RentACarModel.Store.Kategori" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="KategoriResim" EntityType="RentACarModel.Store.KategoriResim" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="KategoriTanim" EntityType="RentACarModel.Store.KategoriTanim" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Urun" EntityType="RentACarModel.Store.Urun" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UrunFiyat" EntityType="RentACarModel.Store.UrunFiyat" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UrunResim" EntityType="RentACarModel.Store.UrunResim" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UrunTanim" EntityType="RentACarModel.Store.UrunTanim" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Kategori_KategoriResim" Association="RentACarModel.Store.FK_Kategori_KategoriResim">
+            <End Role="Kategori" EntitySet="Kategori" />
+            <End Role="KategoriResim" EntitySet="KategoriResim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kategori_KategoriTanim" Association="RentACarModel.Store.FK_Kategori_KategoriTanim">
+            <End Role="Kategori" EntitySet="Kategori" />
+            <End Role="KategoriTanim" EntitySet="KategoriTanim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_Kategori" Association="RentACarModel.Store.FK_Urun_Kategori">
+            <End Role="Kategori" EntitySet="Kategori" />
+            <End Role="Urun" EntitySet="Urun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_UrunResim" Association="RentACarModel.Store.FK_Urun_UrunResim">
+            <End Role="Urun" EntitySet="Urun" />
+            <End Role="UrunResim" EntitySet="UrunResim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_UrunTanim" Association="RentACarModel.Store.FK_Urun_UrunTanim">
+            <End Role="Urun" EntitySet="Urun" />
+            <End Role="UrunTanim" EntitySet="UrunTanim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UrunFiyat_Urun" Association="RentACarModel.Store.FK_UrunFiyat_Urun">
+            <End Role="Urun" EntitySet="Urun" />
+            <End Role="UrunFiyat" EntitySet="UrunFiyat" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Kategori">
+          <Key>
+            <PropertyRef Name="KategoriId" />
+          </Key>
+          <Property Name="KategoriId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Sil" Type="int" Nullable="false" />
+          <Property Name="KategoriAd" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KategoriResim">
+          <Key>
+            <PropertyRef Name="KategoriResimId" />
+          </Key>
+          <Property Name="KategoriResimId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriId" Type="int" Nullable="false" />
+          <Property Name="ResimPath" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="AnaResimMi" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KategoriTanim">
+          <Key>
+            <PropertyRef Name="KategoriTanimId" />
+          </Key>
+          <Property Name="KategoriTanimId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriId" Type="int" Nullable="false" />
+          <Property Name="Aciklama" Type="nvarchar(max)" />
+          <Property Name="Ad" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="DilTip" Type="int" />
+          <Property Name="Ozet" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Urun">
+          <Key>
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Name="UrunId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriId" Type="int" Nullable="false" />
+          <Property Name="Sil" Type="int" Nullable="false" />
+          <Property Name="UrunAd" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Aciklama" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="UrunFiyat">
+          <Key>
+            <PropertyRef Name="UrunFiyatId" />
+          </Key>
+          <Property Name="UrunFiyatId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UrunFiyatTip" Type="int" Nullable="false" />
+          <Property Name="UrunId" Type="int" Nullable="false" />
+          <Property Name="Fiyat" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UrunResim">
+          <Key>
+            <PropertyRef Name="UrunResimId" />
+          </Key>
+          <Property Name="UrunResimId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ResimPath" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="UrunId" Type="int" Nullable="false" />
+          <Property Name="AnaResimMi" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UrunTanim">
+          <Key>
+            <PropertyRef Name="UrunTanimId" />
+          </Key>
+          <Property Name="UrunTanimId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Aciklama" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Ad" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="Ozet" Type="nvarchar" Nullable="false" MaxLength="1000" />
+          <Property Name="UrunId" Type="int" Nullable="false" />
+          <Property Name="DilTip" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Kategori_KategoriResim">
+          <End Role="Kategori" Type="RentACarModel.Store.Kategori" Multiplicity="1" />
+          <End Role="KategoriResim" Type="RentACarModel.Store.KategoriResim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategori">
+              <PropertyRef Name="KategoriId" />
+            </Principal>
+            <Dependent Role="KategoriResim">
+              <PropertyRef Name="KategoriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kategori_KategoriTanim">
+          <End Role="Kategori" Type="RentACarModel.Store.Kategori" Multiplicity="1" />
+          <End Role="KategoriTanim" Type="RentACarModel.Store.KategoriTanim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategori">
+              <PropertyRef Name="KategoriId" />
+            </Principal>
+            <Dependent Role="KategoriTanim">
+              <PropertyRef Name="KategoriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_Kategori">
+          <End Role="Kategori" Type="RentACarModel.Store.Kategori" Multiplicity="1" />
+          <End Role="Urun" Type="RentACarModel.Store.Urun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategori">
+              <PropertyRef Name="KategoriId" />
+            </Principal>
+            <Dependent Role="Urun">
+              <PropertyRef Name="KategoriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_UrunResim">
+          <End Role="Urun" Type="RentACarModel.Store.Urun" Multiplicity="1" />
+          <End Role="UrunResim" Type="RentACarModel.Store.UrunResim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urun">
+              <PropertyRef Name="UrunId" />
+            </Principal>
+            <Dependent Role="UrunResim">
+              <PropertyRef Name="UrunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_UrunTanim">
+          <End Role="Urun" Type="RentACarModel.Store.Urun" Multiplicity="1" />
+          <End Role="UrunTanim" Type="RentACarModel.Store.UrunTanim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urun">
+              <PropertyRef Name="UrunId" />
+            </Principal>
+            <Dependent Role="UrunTanim">
+              <PropertyRef Name="UrunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UrunFiyat_Urun">
+          <End Role="Urun" Type="RentACarModel.Store.Urun" Multiplicity="1" />
+          <End Role="UrunFiyat" Type="RentACarModel.Store.UrunFiyat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urun">
+              <PropertyRef Name="UrunId" />
+            </Principal>
+            <Dependent Role="UrunFiyat">
+              <PropertyRef Name="UrunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RentACarModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="RentACarEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="KategoriResim" EntityType="RentACarModel.KategoriResim" />
+          <EntitySet Name="KategoriTanim" EntityType="RentACarModel.KategoriTanim" />
+          <EntitySet Name="UrunTanim" EntityType="RentACarModel.UrunTanim" />
+          <EntitySet Name="Kategori" EntityType="RentACarModel.Kategori" />
+          <AssociationSet Name="FK_Kategori_KategoriResim" Association="RentACarModel.FK_Kategori_KategoriResim">
+            <End Role="Kategori" EntitySet="Kategori" />
+            <End Role="KategoriResim" EntitySet="KategoriResim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kategori_KategoriTanim" Association="RentACarModel.FK_Kategori_KategoriTanim">
+            <End Role="Kategori" EntitySet="Kategori" />
+            <End Role="KategoriTanim" EntitySet="KategoriTanim" />
+          </AssociationSet>
+          <EntitySet Name="UrunFiyat" EntityType="RentACarModel.UrunFiyat" />
+          <EntitySet Name="Urun" EntityType="RentACarModel.Urun" />
+          <AssociationSet Name="FK_Urun_Kategori" Association="RentACarModel.FK_Urun_Kategori">
+            <End Role="Kategori" EntitySet="Kategori" />
+            <End Role="Urun" EntitySet="Urun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Urun_UrunTanim" Association="RentACarModel.FK_Urun_UrunTanim">
+            <End Role="Urun" EntitySet="Urun" />
+            <End Role="UrunTanim" EntitySet="UrunTanim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UrunFiyat_Urun" Association="RentACarModel.FK_UrunFiyat_Urun">
+            <End Role="Urun" EntitySet="Urun" />
+            <End Role="UrunFiyat" EntitySet="UrunFiyat" />
+          </AssociationSet>
+          <EntitySet Name="UrunResim" EntityType="RentACarModel.UrunResim" />
+          <AssociationSet Name="FK_Urun_UrunResim" Association="RentACarModel.FK_Urun_UrunResim">
+            <End Role="Urun" EntitySet="Urun" />
+            <End Role="UrunResim" EntitySet="UrunResim" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="KategoriResim">
+          <Key>
+            <PropertyRef Name="KategoriResimId" />
+          </Key>
+          <Property Name="KategoriResimId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriId" Type="Int32" Nullable="false" />
+          <Property Name="ResimPath" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="AnaResimMi" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Kategori" Relationship="RentACarModel.FK_Kategori_KategoriResim" FromRole="KategoriResim" ToRole="Kategori" />
+        </EntityType>
+        <EntityType Name="KategoriTanim">
+          <Key>
+            <PropertyRef Name="KategoriTanimId" />
+          </Key>
+          <Property Name="KategoriTanimId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriId" Type="Int32" Nullable="false" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Ad" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="DilTip" Type="Int32" />
+          <Property Name="Ozet" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Kategori" Relationship="RentACarModel.FK_Kategori_KategoriTanim" FromRole="KategoriTanim" ToRole="Kategori" />
+        </EntityType>
+        <EntityType Name="UrunTanim">
+          <Key>
+            <PropertyRef Name="UrunTanimId" />
+          </Key>
+          <Property Name="UrunTanimId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Aciklama" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Ad" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="Ozet" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <Property Name="UrunId" Type="Int32" Nullable="false" />
+          <Property Name="DilTip" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Urun" Relationship="RentACarModel.FK_Urun_UrunTanim" FromRole="UrunTanim" ToRole="Urun" />
+        </EntityType>
+        <EntityType Name="Kategori">
+          <Key>
+            <PropertyRef Name="KategoriId" />
+          </Key>
+          <Property Type="Int32" Name="KategoriId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Sil" Nullable="false" />
+          <Property Type="String" Name="KategoriAd" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KategoriResim" Relationship="RentACarModel.FK_Kategori_KategoriResim" FromRole="Kategori" ToRole="KategoriResim" />
+          <NavigationProperty Name="KategoriTanim" Relationship="RentACarModel.FK_Kategori_KategoriTanim" FromRole="Kategori" ToRole="KategoriTanim" />
+          <NavigationProperty Name="Urun" Relationship="RentACarModel.FK_Urun_Kategori" FromRole="Kategori" ToRole="Urun" />
+        </EntityType>
+        <Association Name="FK_Kategori_KategoriResim">
+          <End Type="RentACarModel.Kategori" Role="Kategori" Multiplicity="1" />
+          <End Type="RentACarModel.KategoriResim" Role="KategoriResim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategori">
+              <PropertyRef Name="KategoriId" />
+            </Principal>
+            <Dependent Role="KategoriResim">
+              <PropertyRef Name="KategoriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kategori_KategoriTanim">
+          <End Type="RentACarModel.Kategori" Role="Kategori" Multiplicity="1" />
+          <End Type="RentACarModel.KategoriTanim" Role="KategoriTanim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategori">
+              <PropertyRef Name="KategoriId" />
+            </Principal>
+            <Dependent Role="KategoriTanim">
+              <PropertyRef Name="KategoriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UrunFiyat">
+          <Key>
+            <PropertyRef Name="UrunFiyatId" />
+          </Key>
+          <Property Type="Int32" Name="UrunFiyatId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UrunFiyatTip" Nullable="false" />
+          <Property Type="Int32" Name="UrunId" Nullable="false" />
+          <Property Type="Decimal" Name="Fiyat" Nullable="false" Precision="19" Scale="4" />
+          <NavigationProperty Name="Urun" Relationship="RentACarModel.FK_UrunFiyat_Urun" FromRole="UrunFiyat" ToRole="Urun" />
+        </EntityType>
+        <EntityType Name="Urun">
+          <Key>
+            <PropertyRef Name="UrunId" />
+          </Key>
+          <Property Type="Int32" Name="UrunId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="KategoriId" Nullable="false" />
+          <Property Type="Int32" Name="Sil" Nullable="false" />
+          <Property Type="String" Name="UrunAd" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Aciklama" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Kategori" Relationship="RentACarModel.FK_Urun_Kategori" FromRole="Urun" ToRole="Kategori" />
+          <NavigationProperty Name="UrunTanim" Relationship="RentACarModel.FK_Urun_UrunTanim" FromRole="Urun" ToRole="UrunTanim" />
+          <NavigationProperty Name="UrunFiyat" Relationship="RentACarModel.FK_UrunFiyat_Urun" FromRole="Urun" ToRole="UrunFiyat" />
+          <NavigationProperty Name="UrunResim" Relationship="RentACarModel.FK_Urun_UrunResim" FromRole="Urun" ToRole="UrunResim" />
+        </EntityType>
+        <Association Name="FK_Urun_Kategori">
+          <End Type="RentACarModel.Kategori" Role="Kategori" Multiplicity="1" />
+          <End Type="RentACarModel.Urun" Role="Urun" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategori">
+              <PropertyRef Name="KategoriId" />
+            </Principal>
+            <Dependent Role="Urun">
+              <PropertyRef Name="KategoriId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Urun_UrunTanim">
+          <End Type="RentACarModel.Urun" Role="Urun" Multiplicity="1" />
+          <End Type="RentACarModel.UrunTanim" Role="UrunTanim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urun">
+              <PropertyRef Name="UrunId" />
+            </Principal>
+            <Dependent Role="UrunTanim">
+              <PropertyRef Name="UrunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UrunFiyat_Urun">
+          <End Type="RentACarModel.Urun" Role="Urun" Multiplicity="1" />
+          <End Type="RentACarModel.UrunFiyat" Role="UrunFiyat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urun">
+              <PropertyRef Name="UrunId" />
+            </Principal>
+            <Dependent Role="UrunFiyat">
+              <PropertyRef Name="UrunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UrunResim">
+          <Key>
+            <PropertyRef Name="UrunResimId" />
+          </Key>
+          <Property Type="Int32" Name="UrunResimId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ResimPath" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="UrunId" Nullable="false" />
+          <Property Type="Boolean" Name="AnaResimMi" Nullable="false" />
+          <NavigationProperty Name="Urun" Relationship="RentACarModel.FK_Urun_UrunResim" FromRole="UrunResim" ToRole="Urun" />
+        </EntityType>
+        <Association Name="FK_Urun_UrunResim">
+          <End Type="RentACarModel.Urun" Role="Urun" Multiplicity="1" />
+          <End Type="RentACarModel.UrunResim" Role="UrunResim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urun">
+              <PropertyRef Name="UrunId" />
+            </Principal>
+            <Dependent Role="UrunResim">
+              <PropertyRef Name="UrunId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RentACarModelStoreContainer" CdmEntityContainer="RentACarEntities">
+          <EntitySetMapping Name="KategoriResim"><EntityTypeMapping TypeName="RentACarModel.KategoriResim"><MappingFragment StoreEntitySet="KategoriResim">
+            <ScalarProperty Name="KategoriResimId" ColumnName="KategoriResimId" />
+            <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+            <ScalarProperty Name="ResimPath" ColumnName="ResimPath" />
+            <ScalarProperty Name="AnaResimMi" ColumnName="AnaResimMi" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="KategoriTanim"><EntityTypeMapping TypeName="RentACarModel.KategoriTanim"><MappingFragment StoreEntitySet="KategoriTanim">
+            <ScalarProperty Name="KategoriTanimId" ColumnName="KategoriTanimId" />
+            <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+            <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+            <ScalarProperty Name="Ad" ColumnName="Ad" />
+            <ScalarProperty Name="DilTip" ColumnName="DilTip" />
+            <ScalarProperty Name="Ozet" ColumnName="Ozet" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="UrunTanim"><EntityTypeMapping TypeName="RentACarModel.UrunTanim"><MappingFragment StoreEntitySet="UrunTanim">
+            <ScalarProperty Name="UrunTanimId" ColumnName="UrunTanimId" />
+            <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+            <ScalarProperty Name="Ad" ColumnName="Ad" />
+            <ScalarProperty Name="Ozet" ColumnName="Ozet" />
+            <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+            <ScalarProperty Name="DilTip" ColumnName="DilTip" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Kategori">
+            <EntityTypeMapping TypeName="RentACarModel.Kategori">
+              <MappingFragment StoreEntitySet="Kategori">
+                <ScalarProperty Name="KategoriAd" ColumnName="KategoriAd" />
+                <ScalarProperty Name="Sil" ColumnName="Sil" />
+                <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UrunFiyat">
+            <EntityTypeMapping TypeName="RentACarModel.UrunFiyat">
+              <MappingFragment StoreEntitySet="UrunFiyat">
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+                <ScalarProperty Name="UrunFiyatTip" ColumnName="UrunFiyatTip" />
+                <ScalarProperty Name="UrunFiyatId" ColumnName="UrunFiyatId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Urun">
+            <EntityTypeMapping TypeName="RentACarModel.Urun">
+              <MappingFragment StoreEntitySet="Urun">
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
+                <ScalarProperty Name="Sil" ColumnName="Sil" />
+                <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+                <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UrunResim">
+            <EntityTypeMapping TypeName="RentACarModel.UrunResim">
+              <MappingFragment StoreEntitySet="UrunResim">
+                <ScalarProperty Name="AnaResimMi" ColumnName="AnaResimMi" />
+                <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+                <ScalarProperty Name="ResimPath" ColumnName="ResimPath" />
+                <ScalarProperty Name="UrunResimId" ColumnName="UrunResimId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="RentACarModel" ZoomLevel="64">
+        <EntityTypeShape EntityType="RentACarModel.KategoriResim" Width="1.5" PointX="8" PointY="1" Height="1.7566536458333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="RentACarModel.KategoriTanim" Width="1.5" PointX="8" PointY="3.5" Height="2.0853483072916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="RentACarModel.UrunTanim" Width="1.5" PointX="3" PointY="3.375" Height="2.085348307291667" IsExpanded="true" />
+        <EntityTypeShape EntityType="RentACarModel.Kategori" Width="1.5" PointX="5.75" PointY="2.375" Height="1.9210009765624996" />
+        <AssociationConnector Association="RentACarModel.FK_Kategori_KategoriResim" >
+          <ConnectorPoint PointX="7.25" PointY="2.5658268229166667" />
+          <ConnectorPoint PointX="8" PointY="2.5658268229166667" />
+        </AssociationConnector>
+        <AssociationConnector Association="RentACarModel.FK_Kategori_KategoriTanim" >
+          <ConnectorPoint PointX="7.25" PointY="3.89800048828125" />
+          <ConnectorPoint PointX="8" PointY="3.89800048828125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RentACarModel.UrunFiyat" Width="1.5" PointX="10.25" PointY="7.5" Height="1.7566536458333317" />
+        <EntityTypeShape EntityType="RentACarModel.Urun" Width="1.5" PointX="8" PointY="7.125" Height="2.4140429687499996" />
+        <AssociationConnector Association="RentACarModel.FK_Urun_Kategori" >
+          <ConnectorPoint PointX="6.5" PointY="4.2960009765625" />
+          <ConnectorPoint PointX="6.5" PointY="7.896063511119487" />
+          <ConnectorPoint PointX="8" PointY="7.896063511119487" />
+        </AssociationConnector>
+        <AssociationConnector Association="RentACarModel.FK_Urun_UrunTanim" >
+          <ConnectorPoint PointX="8" PointY="8.7488057399347436" />
+          <ConnectorPoint PointX="3.75" PointY="8.7488057399347436" />
+          <ConnectorPoint PointX="3.75" PointY="5.4603483072916674" />
+        </AssociationConnector>
+        <AssociationConnector Association="RentACarModel.FK_UrunFiyat_Urun" >
+          <ConnectorPoint PointX="9.5" PointY="8.3783268229166659" />
+          <ConnectorPoint PointX="10.25" PointY="8.3783268229166659" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="RentACarModel.UrunResim" Width="1.5" PointX="10.25" PointY="10.5" Height="1.7566536458333317" />
+        <AssociationConnector Association="RentACarModel.FK_Urun_UrunResim" >
+          <ConnectorPoint PointX="8.75" PointY="9.53904296875" />
+          <ConnectorPoint PointX="8.75" PointY="11.378326822916666" />
+          <ConnectorPoint PointX="10.25" PointY="11.378326822916666" />
+        </AssociationConnector>
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

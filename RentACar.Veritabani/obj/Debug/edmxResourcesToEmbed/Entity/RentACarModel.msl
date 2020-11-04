@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RentACarModelStoreContainer" CdmEntityContainer="RentACarEntities">
+    <EntitySetMapping Name="KategoriResim">
+      <EntityTypeMapping TypeName="RentACarModel.KategoriResim">
+        <MappingFragment StoreEntitySet="KategoriResim">
+          <ScalarProperty Name="KategoriResimId" ColumnName="KategoriResimId" />
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+          <ScalarProperty Name="ResimPath" ColumnName="ResimPath" />
+          <ScalarProperty Name="AnaResimMi" ColumnName="AnaResimMi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KategoriTanim">
+      <EntityTypeMapping TypeName="RentACarModel.KategoriTanim">
+        <MappingFragment StoreEntitySet="KategoriTanim">
+          <ScalarProperty Name="KategoriTanimId" ColumnName="KategoriTanimId" />
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="DilTip" ColumnName="DilTip" />
+          <ScalarProperty Name="Ozet" ColumnName="Ozet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UrunTanim">
+      <EntityTypeMapping TypeName="RentACarModel.UrunTanim">
+        <MappingFragment StoreEntitySet="UrunTanim">
+          <ScalarProperty Name="UrunTanimId" ColumnName="UrunTanimId" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Ozet" ColumnName="Ozet" />
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+          <ScalarProperty Name="DilTip" ColumnName="DilTip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategori">
+      <EntityTypeMapping TypeName="RentACarModel.Kategori">
+        <MappingFragment StoreEntitySet="Kategori">
+          <ScalarProperty Name="KategoriAd" ColumnName="KategoriAd" />
+          <ScalarProperty Name="Sil" ColumnName="Sil" />
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UrunFiyat">
+      <EntityTypeMapping TypeName="RentACarModel.UrunFiyat">
+        <MappingFragment StoreEntitySet="UrunFiyat">
+          <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+          <ScalarProperty Name="UrunFiyatTip" ColumnName="UrunFiyatTip" />
+          <ScalarProperty Name="UrunFiyatId" ColumnName="UrunFiyatId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urun">
+      <EntityTypeMapping TypeName="RentACarModel.Urun">
+        <MappingFragment StoreEntitySet="Urun">
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="UrunAd" ColumnName="UrunAd" />
+          <ScalarProperty Name="Sil" ColumnName="Sil" />
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UrunResim">
+      <EntityTypeMapping TypeName="RentACarModel.UrunResim">
+        <MappingFragment StoreEntitySet="UrunResim">
+          <ScalarProperty Name="AnaResimMi" ColumnName="AnaResimMi" />
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+          <ScalarProperty Name="ResimPath" ColumnName="ResimPath" />
+          <ScalarProperty Name="UrunResimId" ColumnName="UrunResimId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

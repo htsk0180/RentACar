@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rentacar1Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="rentacar1EntitiesWeb" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="kategori" EntityType="rentacar1Model.kategori" />
+    <EntitySet Name="kategoriresim" EntityType="rentacar1Model.kategoriresim" />
+    <EntitySet Name="kategoritanim" EntityType="rentacar1Model.kategoritanim" />
+    <EntitySet Name="urun" EntityType="rentacar1Model.urun" />
+    <EntitySet Name="urunresim" EntityType="rentacar1Model.urunresim" />
+    <EntitySet Name="uruntanim" EntityType="rentacar1Model.uruntanim" />
+    <AssociationSet Name="Kategori_KategoriResim" Association="rentacar1Model.Kategori_KategoriResim">
+      <End Role="kategori" EntitySet="kategori" />
+      <End Role="kategoriresim" EntitySet="kategoriresim" />
+    </AssociationSet>
+    <AssociationSet Name="Kategori_KategoriTanim" Association="rentacar1Model.Kategori_KategoriTanim">
+      <End Role="kategori" EntitySet="kategori" />
+      <End Role="kategoritanim" EntitySet="kategoritanim" />
+    </AssociationSet>
+    <AssociationSet Name="Urun_UrunResim" Association="rentacar1Model.Urun_UrunResim">
+      <End Role="urun" EntitySet="urun" />
+      <End Role="urunresim" EntitySet="urunresim" />
+    </AssociationSet>
+    <AssociationSet Name="Urun_UrunTanim" Association="rentacar1Model.Urun_UrunTanim">
+      <End Role="urun" EntitySet="urun" />
+      <End Role="uruntanim" EntitySet="uruntanim" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="kategori">
+    <Key>
+      <PropertyRef Name="KategoriId" />
+    </Key>
+    <Property Name="KategoriAd" Type="String" />
+    <Property Name="KategoriId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sil" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="kategoriresim" Relationship="rentacar1Model.Kategori_KategoriResim" FromRole="kategori" ToRole="kategoriresim" />
+    <NavigationProperty Name="kategoritanim" Relationship="rentacar1Model.Kategori_KategoriTanim" FromRole="kategori" ToRole="kategoritanim" />
+  </EntityType>
+  <EntityType Name="kategoriresim">
+    <Key>
+      <PropertyRef Name="KategoriResimId" />
+    </Key>
+    <Property Name="KategoriId" Type="Int32" Nullable="false" />
+    <Property Name="KategoriResimId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResimPath" Type="String" />
+    <NavigationProperty Name="kategori" Relationship="rentacar1Model.Kategori_KategoriResim" FromRole="kategoriresim" ToRole="kategori" />
+  </EntityType>
+  <EntityType Name="kategoritanim">
+    <Key>
+      <PropertyRef Name="KategoriTanimId" />
+    </Key>
+    <Property Name="Aciklama" Type="String" />
+    <Property Name="Ad" Type="String" Nullable="false" />
+    <Property Name="DilTip" Type="Int32" />
+    <Property Name="KategoriId" Type="Int32" Nullable="false" />
+    <Property Name="KategoriTanimId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ozet" Type="String" />
+    <NavigationProperty Name="kategori" Relationship="rentacar1Model.Kategori_KategoriTanim" FromRole="kategoritanim" ToRole="kategori" />
+  </EntityType>
+  <EntityType Name="urun">
+    <Key>
+      <PropertyRef Name="UrunId" />
+    </Key>
+    <Property Name="KategoriId" Type="Int32" Nullable="false" />
+    <Property Name="Sil" Type="Int32" Nullable="false" />
+    <Property Name="UrunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="urunresim" Relationship="rentacar1Model.Urun_UrunResim" FromRole="urun" ToRole="urunresim" />
+    <NavigationProperty Name="uruntanim" Relationship="rentacar1Model.Urun_UrunTanim" FromRole="urun" ToRole="uruntanim" />
+  </EntityType>
+  <EntityType Name="urunresim">
+    <Key>
+      <PropertyRef Name="UrunResimId" />
+    </Key>
+    <Property Name="ResimPath" Type="String" />
+    <Property Name="UrunId" Type="Int32" Nullable="false" />
+    <Property Name="UrunResimId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="urun" Relationship="rentacar1Model.Urun_UrunResim" FromRole="urunresim" ToRole="urun" />
+  </EntityType>
+  <EntityType Name="uruntanim">
+    <Key>
+      <PropertyRef Name="UrunTanimId" />
+    </Key>
+    <Property Name="Aciklama" Type="String" />
+    <Property Name="Ad" Type="String" />
+    <Property Name="DilTip" Type="Int32" />
+    <Property Name="Ozet" Type="String" />
+    <Property Name="UrunId" Type="Int32" Nullable="false" />
+    <Property Name="UrunTanimId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="urun" Relationship="rentacar1Model.Urun_UrunTanim" FromRole="uruntanim" ToRole="urun" />
+  </EntityType>
+  <Association Name="Kategori_KategoriResim">
+    <End Role="kategori" Type="rentacar1Model.kategori" Multiplicity="1" />
+    <End Role="kategoriresim" Type="rentacar1Model.kategoriresim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kategori">
+        <PropertyRef Name="KategoriId" />
+      </Principal>
+      <Dependent Role="kategoriresim">
+        <PropertyRef Name="KategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Kategori_KategoriTanim">
+    <End Role="kategori" Type="rentacar1Model.kategori" Multiplicity="1" />
+    <End Role="kategoritanim" Type="rentacar1Model.kategoritanim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kategori">
+        <PropertyRef Name="KategoriId" />
+      </Principal>
+      <Dependent Role="kategoritanim">
+        <PropertyRef Name="KategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Urun_UrunResim">
+    <End Role="urun" Type="rentacar1Model.urun" Multiplicity="1" />
+    <End Role="urunresim" Type="rentacar1Model.urunresim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="urun">
+        <PropertyRef Name="UrunId" />
+      </Principal>
+      <Dependent Role="urunresim">
+        <PropertyRef Name="UrunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Urun_UrunTanim">
+    <End Role="urun" Type="rentacar1Model.urun" Multiplicity="1" />
+    <End Role="uruntanim" Type="rentacar1Model.uruntanim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="urun">
+        <PropertyRef Name="UrunId" />
+      </Principal>
+      <Dependent Role="uruntanim">
+        <PropertyRef Name="UrunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

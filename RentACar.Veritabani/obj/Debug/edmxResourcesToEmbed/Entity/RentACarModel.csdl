@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RentACarModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="RentACarEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="KategoriResim" EntityType="RentACarModel.KategoriResim" />
+    <EntitySet Name="KategoriTanim" EntityType="RentACarModel.KategoriTanim" />
+    <EntitySet Name="UrunTanim" EntityType="RentACarModel.UrunTanim" />
+    <EntitySet Name="Kategori" EntityType="RentACarModel.Kategori" />
+    <AssociationSet Name="FK_Kategori_KategoriResim" Association="RentACarModel.FK_Kategori_KategoriResim">
+      <End Role="Kategori" EntitySet="Kategori" />
+      <End Role="KategoriResim" EntitySet="KategoriResim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kategori_KategoriTanim" Association="RentACarModel.FK_Kategori_KategoriTanim">
+      <End Role="Kategori" EntitySet="Kategori" />
+      <End Role="KategoriTanim" EntitySet="KategoriTanim" />
+    </AssociationSet>
+    <EntitySet Name="UrunFiyat" EntityType="RentACarModel.UrunFiyat" />
+    <EntitySet Name="Urun" EntityType="RentACarModel.Urun" />
+    <AssociationSet Name="FK_Urun_Kategori" Association="RentACarModel.FK_Urun_Kategori">
+      <End Role="Kategori" EntitySet="Kategori" />
+      <End Role="Urun" EntitySet="Urun" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urun_UrunTanim" Association="RentACarModel.FK_Urun_UrunTanim">
+      <End Role="Urun" EntitySet="Urun" />
+      <End Role="UrunTanim" EntitySet="UrunTanim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UrunFiyat_Urun" Association="RentACarModel.FK_UrunFiyat_Urun">
+      <End Role="Urun" EntitySet="Urun" />
+      <End Role="UrunFiyat" EntitySet="UrunFiyat" />
+    </AssociationSet>
+    <EntitySet Name="UrunResim" EntityType="RentACarModel.UrunResim" />
+    <AssociationSet Name="FK_Urun_UrunResim" Association="RentACarModel.FK_Urun_UrunResim">
+      <End Role="Urun" EntitySet="Urun" />
+      <End Role="UrunResim" EntitySet="UrunResim" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="KategoriResim">
+    <Key>
+      <PropertyRef Name="KategoriResimId" />
+    </Key>
+    <Property Name="KategoriResimId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KategoriId" Type="Int32" Nullable="false" />
+    <Property Name="ResimPath" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="AnaResimMi" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Kategori" Relationship="RentACarModel.FK_Kategori_KategoriResim" FromRole="KategoriResim" ToRole="Kategori" />
+  </EntityType>
+  <EntityType Name="KategoriTanim">
+    <Key>
+      <PropertyRef Name="KategoriTanimId" />
+    </Key>
+    <Property Name="KategoriTanimId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KategoriId" Type="Int32" Nullable="false" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Ad" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="DilTip" Type="Int32" />
+    <Property Name="Ozet" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Kategori" Relationship="RentACarModel.FK_Kategori_KategoriTanim" FromRole="KategoriTanim" ToRole="Kategori" />
+  </EntityType>
+  <EntityType Name="UrunTanim">
+    <Key>
+      <PropertyRef Name="UrunTanimId" />
+    </Key>
+    <Property Name="UrunTanimId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Aciklama" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Ad" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="Ozet" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="UrunId" Type="Int32" Nullable="false" />
+    <Property Name="DilTip" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Urun" Relationship="RentACarModel.FK_Urun_UrunTanim" FromRole="UrunTanim" ToRole="Urun" />
+  </EntityType>
+  <EntityType Name="Kategori">
+    <Key>
+      <PropertyRef Name="KategoriId" />
+    </Key>
+    <Property Type="Int32" Name="KategoriId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="Sil" Nullable="false" />
+    <Property Type="String" Name="KategoriAd" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KategoriResim" Relationship="RentACarModel.FK_Kategori_KategoriResim" FromRole="Kategori" ToRole="KategoriResim" />
+    <NavigationProperty Name="KategoriTanim" Relationship="RentACarModel.FK_Kategori_KategoriTanim" FromRole="Kategori" ToRole="KategoriTanim" />
+    <NavigationProperty Name="Urun" Relationship="RentACarModel.FK_Urun_Kategori" FromRole="Kategori" ToRole="Urun" />
+  </EntityType>
+  <Association Name="FK_Kategori_KategoriResim">
+    <End Type="RentACarModel.Kategori" Role="Kategori" Multiplicity="1" />
+    <End Type="RentACarModel.KategoriResim" Role="KategoriResim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategori">
+        <PropertyRef Name="KategoriId" />
+      </Principal>
+      <Dependent Role="KategoriResim">
+        <PropertyRef Name="KategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kategori_KategoriTanim">
+    <End Type="RentACarModel.Kategori" Role="Kategori" Multiplicity="1" />
+    <End Type="RentACarModel.KategoriTanim" Role="KategoriTanim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategori">
+        <PropertyRef Name="KategoriId" />
+      </Principal>
+      <Dependent Role="KategoriTanim">
+        <PropertyRef Name="KategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UrunFiyat">
+    <Key>
+      <PropertyRef Name="UrunFiyatId" />
+    </Key>
+    <Property Type="Int32" Name="UrunFiyatId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="UrunFiyatTip" Nullable="false" />
+    <Property Type="Int32" Name="UrunId" Nullable="false" />
+    <Property Type="Decimal" Name="Fiyat" Nullable="false" Precision="19" Scale="4" />
+    <NavigationProperty Name="Urun" Relationship="RentACarModel.FK_UrunFiyat_Urun" FromRole="UrunFiyat" ToRole="Urun" />
+  </EntityType>
+  <EntityType Name="Urun">
+    <Key>
+      <PropertyRef Name="UrunId" />
+    </Key>
+    <Property Type="Int32" Name="UrunId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="KategoriId" Nullable="false" />
+    <Property Type="Int32" Name="Sil" Nullable="false" />
+    <Property Type="String" Name="UrunAd" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Aciklama" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kategori" Relationship="RentACarModel.FK_Urun_Kategori" FromRole="Urun" ToRole="Kategori" />
+    <NavigationProperty Name="UrunTanim" Relationship="RentACarModel.FK_Urun_UrunTanim" FromRole="Urun" ToRole="UrunTanim" />
+    <NavigationProperty Name="UrunFiyat" Relationship="RentACarModel.FK_UrunFiyat_Urun" FromRole="Urun" ToRole="UrunFiyat" />
+    <NavigationProperty Name="UrunResim" Relationship="RentACarModel.FK_Urun_UrunResim" FromRole="Urun" ToRole="UrunResim" />
+  </EntityType>
+  <Association Name="FK_Urun_Kategori">
+    <End Type="RentACarModel.Kategori" Role="Kategori" Multiplicity="1" />
+    <End Type="RentACarModel.Urun" Role="Urun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategori">
+        <PropertyRef Name="KategoriId" />
+      </Principal>
+      <Dependent Role="Urun">
+        <PropertyRef Name="KategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urun_UrunTanim">
+    <End Type="RentACarModel.Urun" Role="Urun" Multiplicity="1" />
+    <End Type="RentACarModel.UrunTanim" Role="UrunTanim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urun">
+        <PropertyRef Name="UrunId" />
+      </Principal>
+      <Dependent Role="UrunTanim">
+        <PropertyRef Name="UrunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UrunFiyat_Urun">
+    <End Type="RentACarModel.Urun" Role="Urun" Multiplicity="1" />
+    <End Type="RentACarModel.UrunFiyat" Role="UrunFiyat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urun">
+        <PropertyRef Name="UrunId" />
+      </Principal>
+      <Dependent Role="UrunFiyat">
+        <PropertyRef Name="UrunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UrunResim">
+    <Key>
+      <PropertyRef Name="UrunResimId" />
+    </Key>
+    <Property Type="Int32" Name="UrunResimId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ResimPath" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="UrunId" Nullable="false" />
+    <Property Type="Boolean" Name="AnaResimMi" Nullable="false" />
+    <NavigationProperty Name="Urun" Relationship="RentACarModel.FK_Urun_UrunResim" FromRole="UrunResim" ToRole="Urun" />
+  </EntityType>
+  <Association Name="FK_Urun_UrunResim">
+    <End Type="RentACarModel.Urun" Role="Urun" Multiplicity="1" />
+    <End Type="RentACarModel.UrunResim" Role="UrunResim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urun">
+        <PropertyRef Name="UrunId" />
+      </Principal>
+      <Dependent Role="UrunResim">
+        <PropertyRef Name="UrunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

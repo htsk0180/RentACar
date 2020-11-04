@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="rentacar1ModelStoreContainer" CdmEntityContainer="rentacar1EntitiesWeb">
+    <EntitySetMapping Name="kategori">
+      <EntityTypeMapping TypeName="rentacar1Model.kategori">
+        <MappingFragment StoreEntitySet="kategori">
+          <ScalarProperty Name="KategoriAd" ColumnName="KategoriAd" />
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+          <ScalarProperty Name="Sil" ColumnName="Sil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kategoriresim">
+      <EntityTypeMapping TypeName="rentacar1Model.kategoriresim">
+        <MappingFragment StoreEntitySet="kategoriresim">
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+          <ScalarProperty Name="KategoriResimId" ColumnName="KategoriResimId" />
+          <ScalarProperty Name="ResimPath" ColumnName="ResimPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kategoritanim">
+      <EntityTypeMapping TypeName="rentacar1Model.kategoritanim">
+        <MappingFragment StoreEntitySet="kategoritanim">
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="DilTip" ColumnName="DilTip" />
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+          <ScalarProperty Name="KategoriTanimId" ColumnName="KategoriTanimId" />
+          <ScalarProperty Name="Ozet" ColumnName="Ozet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="urun">
+      <EntityTypeMapping TypeName="rentacar1Model.urun">
+        <MappingFragment StoreEntitySet="urun">
+          <ScalarProperty Name="KategoriId" ColumnName="KategoriId" />
+          <ScalarProperty Name="Sil" ColumnName="Sil" />
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="urunresim">
+      <EntityTypeMapping TypeName="rentacar1Model.urunresim">
+        <MappingFragment StoreEntitySet="urunresim">
+          <ScalarProperty Name="ResimPath" ColumnName="ResimPath" />
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+          <ScalarProperty Name="UrunResimId" ColumnName="UrunResimId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="uruntanim">
+      <EntityTypeMapping TypeName="rentacar1Model.uruntanim">
+        <MappingFragment StoreEntitySet="uruntanim">
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="DilTip" ColumnName="DilTip" />
+          <ScalarProperty Name="Ozet" ColumnName="Ozet" />
+          <ScalarProperty Name="UrunId" ColumnName="UrunId" />
+          <ScalarProperty Name="UrunTanimId" ColumnName="UrunTanimId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

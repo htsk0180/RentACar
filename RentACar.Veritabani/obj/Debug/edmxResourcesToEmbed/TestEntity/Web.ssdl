@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rentacar1Model.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="rentacar1ModelStoreContainer">
+    <EntitySet Name="kategori" EntityType="rentacar1Model.Store.kategori" store:Type="Tables" Schema="rentacar1" />
+    <EntitySet Name="kategoriresim" EntityType="rentacar1Model.Store.kategoriresim" store:Type="Tables" Schema="rentacar1" />
+    <EntitySet Name="kategoritanim" EntityType="rentacar1Model.Store.kategoritanim" store:Type="Tables" Schema="rentacar1" />
+    <EntitySet Name="urun" EntityType="rentacar1Model.Store.urun" store:Type="Tables" Schema="rentacar1" />
+    <EntitySet Name="urunresim" EntityType="rentacar1Model.Store.urunresim" store:Type="Tables" Schema="rentacar1" />
+    <EntitySet Name="uruntanim" EntityType="rentacar1Model.Store.uruntanim" store:Type="Tables" Schema="rentacar1" />
+    <AssociationSet Name="Kategori_KategoriResim" Association="rentacar1Model.Store.Kategori_KategoriResim">
+      <End Role="kategori" EntitySet="kategori" />
+      <End Role="kategoriresim" EntitySet="kategoriresim" />
+    </AssociationSet>
+    <AssociationSet Name="Kategori_KategoriTanim" Association="rentacar1Model.Store.Kategori_KategoriTanim">
+      <End Role="kategori" EntitySet="kategori" />
+      <End Role="kategoritanim" EntitySet="kategoritanim" />
+    </AssociationSet>
+    <AssociationSet Name="Urun_UrunResim" Association="rentacar1Model.Store.Urun_UrunResim">
+      <End Role="urun" EntitySet="urun" />
+      <End Role="urunresim" EntitySet="urunresim" />
+    </AssociationSet>
+    <AssociationSet Name="Urun_UrunTanim" Association="rentacar1Model.Store.Urun_UrunTanim">
+      <End Role="urun" EntitySet="urun" />
+      <End Role="uruntanim" EntitySet="uruntanim" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="kategori">
+    <Key>
+      <PropertyRef Name="KategoriId" />
+    </Key>
+    <Property Name="KategoriAd" Type="varchar" MaxLength="200" />
+    <Property Name="KategoriId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Sil" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="kategoriresim">
+    <Key>
+      <PropertyRef Name="KategoriResimId" />
+    </Key>
+    <Property Name="KategoriId" Type="int" Nullable="false" />
+    <Property Name="KategoriResimId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ResimPath" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="kategoritanim">
+    <Key>
+      <PropertyRef Name="KategoriTanimId" />
+    </Key>
+    <Property Name="Aciklama" Type="varchar" MaxLength="5000" />
+    <Property Name="Ad" Type="varchar" Nullable="false" MaxLength="200" />
+    <Property Name="DilTip" Type="int" />
+    <Property Name="KategoriId" Type="int" Nullable="false" />
+    <Property Name="KategoriTanimId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Ozet" Type="varchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="urun">
+    <Key>
+      <PropertyRef Name="UrunId" />
+    </Key>
+    <Property Name="KategoriId" Type="int" Nullable="false" />
+    <Property Name="Sil" Type="int" Nullable="false" />
+    <Property Name="UrunId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="urunresim">
+    <Key>
+      <PropertyRef Name="UrunResimId" />
+    </Key>
+    <Property Name="ResimPath" Type="varchar" MaxLength="300" />
+    <Property Name="UrunId" Type="int" Nullable="false" />
+    <Property Name="UrunResimId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="uruntanim">
+    <Key>
+      <PropertyRef Name="UrunTanimId" />
+    </Key>
+    <Property Name="Aciklama" Type="varchar" MaxLength="5000" />
+    <Property Name="Ad" Type="varchar" MaxLength="200" />
+    <Property Name="DilTip" Type="int" />
+    <Property Name="Ozet" Type="varchar" MaxLength="2000" />
+    <Property Name="UrunId" Type="int" Nullable="false" />
+    <Property Name="UrunTanimId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <Association Name="Kategori_KategoriResim">
+    <End Role="kategori" Type="rentacar1Model.Store.kategori" Multiplicity="1" />
+    <End Role="kategoriresim" Type="rentacar1Model.Store.kategoriresim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kategori">
+        <PropertyRef Name="KategoriId" />
+      </Principal>
+      <Dependent Role="kategoriresim">
+        <PropertyRef Name="KategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Kategori_KategoriTanim">
+    <End Role="kategori" Type="rentacar1Model.Store.kategori" Multiplicity="1" />
+    <End Role="kategoritanim" Type="rentacar1Model.Store.kategoritanim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kategori">
+        <PropertyRef Name="KategoriId" />
+      </Principal>
+      <Dependent Role="kategoritanim">
+        <PropertyRef Name="KategoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Urun_UrunResim">
+    <End Role="urun" Type="rentacar1Model.Store.urun" Multiplicity="1" />
+    <End Role="urunresim" Type="rentacar1Model.Store.urunresim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="urun">
+        <PropertyRef Name="UrunId" />
+      </Principal>
+      <Dependent Role="urunresim">
+        <PropertyRef Name="UrunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Urun_UrunTanim">
+    <End Role="urun" Type="rentacar1Model.Store.urun" Multiplicity="1" />
+    <End Role="uruntanim" Type="rentacar1Model.Store.uruntanim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="urun">
+        <PropertyRef Name="UrunId" />
+      </Principal>
+      <Dependent Role="uruntanim">
+        <PropertyRef Name="UrunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,283 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="RentACar.master.cs" Inherits="RentACar.RentACar" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1254">
+    <title>
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+    </title>
+    <meta name="description" content="Bilişim Bahçesi, Kurumsal kimlik , web tasarım mersin, web tasarım adana,Bilişim, Web Tasarım, Kurumsal Kimlik, Alan adı, Hosting,  E-ticaret,E-ihracat, Intranet, Mersin, Adana, Çukurova">
+    <meta name="keywords" content="bilişim bahçesi, kurumsal kimlik, web tasarım mersin, mersin web tasarım,web tasarım ankara,  toplu sms, turkcell toplu sms, mersin, web tasarım, alan adı, hosting, domain, linux, paket, web design, internet, sayfa,com,net,org, com.tr,org.tr,gov.tr,Web tasarım-Web tasarım hizmetleri-Web hosting işlemleri-Domain tescil-E-ticaret sistemleri-Flash tasarım-Web site güncelleme-Arama motoru optimasyonu-Web  tasarim-WEB-Web-Tasarım-Tasarim-Web design-WEB design-web hosting-web host-web update-Web Hosting-Web Tasarımı nasıl yapılır-Web tasarım kampanyasi-web tasarım hakkında bilgi-web tasarımı  hakkında-web tasarımında püf noktalar-web tasarım optimasyonu-web tasarımında e ticaret-web te yer almak-web ve web tasarımı hakkında ayrıntılı bilgi-web tasarımında bir numara-en iyi web  sitesi-en yeni web sitesi-web bilgileri-web tasarym profili-web bili?im-web bile?im-web sanat-web tasarym işlemleri-web işlemleri-web sitem var-ucuz web tasaryım-bedeva web alanı-ücretsiz  web tasarım-web template-web templateleri-web şablonlary-web tasarım şablonu-web sitesi şablonları-web tasarım çalışmaları-web tasarımı konusuna genel bakış-web proje-web geliştirme-web  istatistik-web grafik-web tabanlı proje-web tasarımı-web tasarımı bilgileri-web tasarımı nasıl yapılır?-web sitemi güncelletmek istiyorum-web sitemi googlede çıkarmak istiyorum-web sitemi  arama motorlaryna kayıt ettirmek istiyorum-web sitesi üzerinden müşterilere ulaşmak istiyorum-free web site-web free-for web-web sitesi hazırlamak-web sitesi tasarımı nedir?-web üzerinden  para kazanmak-web üzerinden müşterilere ulaşmak-web arkadaş-web sunumu hazırlamak-web tasarım sunumları-web uzmanlık-web tasarım şirketleri-web tasarym firmaları-web tasarym iş yerleri-web  tasarım dükkanları-web tasarım shop-web shop-web client-web server-web logo tasarım-web logo-web programlama-web programcısı-web programcisi-web blogcu-web haber-istanbul web tasarım-web destek-izmir  web tasarım-bursa web tasarım-kadyköy web tasarım-sultan ahmet web tasarım-web turizm-web kaynakları-web source-web open source-web sayac-web sayaç-web search-web arama motoru-web searching-web  programming-web tasarim sistemleri-web tasarym bileşenleri-web kodu-web bileşim hizmetleri-web admin-web site admin paneli-web sitepanel-web site admin-web site yöneticisi-web portal-web ulaşym-web  sitesi arama morotu optimasyonu-web googlede ilk on-web googlede ilk 10 da yer alma-web tasarym dersleri-web tasarim kaynak kodları-web code-web projesi-web tasarim kolları-web php-web asp-web aspx-web  linux-web windows-web calismalari-web çalışmaları-webçiyiz-webciyiz-web ciyiz-web çiyiz-web forum harita-web site haritası-amatör web tasarım-ankara web sayfa tasarıma-ankara web tasarım-bedava web tasarım-bir  web tasarım programı-bursa web tasarym-en iyi web tasarım-web tasarım-web sayfası tasarım-en iyi web tasarım programı-flash ile web tasarım-flash web tasarım-freelance web tasarım-grafik web tasarım-hazır web  tasarım-izmir web tasarım-kocaeli web tasarym-group web tasarım,web tasarım, web tasarım, web dizayn, elektronik ticaret, web yazılımı, multimedya, kurumsal kimlik, email marketing, sanalpos, online ödeme entegrasyonu, logo tasarımı, kartvizit tasarımı, web dizayn, alışveriş sitesi, sanal mağaza, google reklam,kurumsal kimlik, yazılım" />
+    <meta http-equiv="Content-Language" content="tr" />
+    <meta http-equiv="Page-Exit" content="blendTrans(Duration=0.5)" />
+    <meta name="Robots" content="index,follow" />
+    <meta name="Copyright" content="(c) 2010 Bilişim Bahçesi" />
+    <meta name="RankLevel" content="1st" />
+    <meta name="Author" content="Bilişim Bahçesi" />
+    <meta name="Classification" content="Bilişim Bahçesi" />
+    <meta name="Distribution" content="Global" />
+    <meta name="Rating" content="General" />
+    <meta name="Resource-type" content="Document" />
+    <meta name="google-site-verification" content="7FeltyR1903C-QrsO24SMKqukVdDXe4JgfJCv53to0s" />
+    <meta http-equiv="Reply-to" content="info@bilisimbahcesi.com" />
+    <meta name="Subject" content="Bilişim Bahçesi Mühendislik Bilişim">
+    <meta name="Language" content="tr,en">
+    <meta name="Expires" content="MRK">
+    <meta name="Designer" content="bilisimbahcesi">
+    <meta name="Publisher" content="bilisimbahcesi.com">
+    <meta name="Distribution" content="Global">
+    <meta name="ROBOTS" content="INCLUDE, FOLLOW">
+    <meta name="revisit-after" content="3">
+    <script language="javascript">        AC_FL_RunContent = 0;</script>
+    <script src="AC_RunActiveContent.js" language="javascript"></script>
+    <style type="text/css">
+        .style1
+        {
+            text-align: left;
+            font-family: "Trebuchet MS";
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body background="Content/images/bg2.jpg" style="background-attachment: fixed" topmargin="0"
+    leftmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0">
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-9988344-9']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+    <div align="center">
+        <table border="0" cellpadding="0" cellspacing="0" width="998" id="table1">
+            <tr>
+                <td>
+                    <script language="javascript">
+                        if (AC_FL_RunContent == 0) {
+                            alert("This page requires AC_RunActiveContent.js.");
+                        } else {
+                            AC_FL_RunContent(
+			'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0',
+			'width', '998',
+			'height', '300',
+			'src', 'ust',
+			'quality', 'high',
+			'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+			'align', 'middle',
+			'play', 'true',
+			'loop', 'true',
+			'scale', 'showall',
+			'wmode', 'transparent',
+			'devicefont', 'false',
+			'id', 'ust',
+			'bgcolor', '#eaeaff',
+			'name', 'ust',
+			'menu', 'true',
+			'allowFullScreen', 'false',
+			'allowScriptAccess', 'sameDomain',
+			'movie', 'ust',
+			'salign', ''
+			); //end AC code
+                        }
+                    </script>
+                    <noscript>
+                        <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+                            width="998" height="300" id="ust" align="middle">
+                            <param name="allowScriptAccess" value="sameDomain" />
+                            <param name="allowFullScreen" value="false" />
+                            <param name="movie" value="ust.swf" />
+                            <param name="quality" value="high" />
+                            <param name="wmode" value="transparent" />
+                            <param name="bgcolor" value="#eaeaff" />
+                            <embed src="ust.swf" quality="high" wmode="transparent" bgcolor="#eaeaff" width="998"
+                                height="300" name="ust" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false"
+                                type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+                        </object>
+                    </noscript>
+                </td>
+            </tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" id="table2" background="Content/images/st.png">
+            <tr>
+                <td>
+                    <div align="center">
+                        <table border="0" cellpadding="0" cellspacing="0" width="980" id="table3">                       
+                            <tr>
+                                <td background="Content/images/st.png">
+                                    <div style="width:208px; padding-left:10px; padding-right:10px;  height:100%; float:left; font-family:Trebuchet MS; font-size:10pt; color:#333333;">
+                                        <div style="width:100%; height:200px;">
+                                            <div style="width:100%; height:30px;font-weight:bold; text-align:center">
+                                                DUYURULAR
+                                                <hr />
+                                            </div>
+                                            <div style="width:100%; height:170px;">
+                                                duyurular
+                                            </div>  
+                                        </div>
+                                        <hr />
+                                        <div style="width:100%;">
+                                            <div style="width:100%; height:30px;font-weight:bold; text-align:center">
+                                                FAYDALI LİNKLER
+                                                <hr />
+                                            </div>
+                                            <div style="width:100%;">
+                                                İstanbul Valiliği
+                                                <br />
+                                                İstanbul Büyükşehir Belediyesi
+                                                <br />
+                                                T.C. Resmi Gazete
+                                                <br />
+                                                E-Devlet
+                                            </div>  
+                                        </div>
+                                        <hr />
+                                        <div style="width:100%; height:80px;">
+                                            <div style="width:100%; height:30px;font-weight:bold; text-align:center">
+                                                DÖVİZ KURU
+                                                <hr />
+                                            </div>
+                                            <div style="width:100%;">
+                                                <div style="width:100%; height:25px;">
+                                                    <div style="width:40px; height:100%; font-weight:bold; float:left;">
+                                                        Dolar
+                                                    </div>
+                                                    <div style="width:8px; height:100%; font-weight:bold; float:left">
+                                                        :
+                                                    </div>
+                                                    <div style="width:80px; height:100%; float:left;">
+                                                        1.54 TL
+                                                    </div>
+                                                    <div style="width:80px; height:100%; float:left;">
+                                                        1.56 TL
+                                                    </div>
+                                                </div>
+                                                <div style="width:100%; height:25px;">
+                                                    <div style="width:40px; height:100%; font-weight:bold; float:left;">
+                                                        Euro
+                                                    </div>
+                                                    <div style="width:8px; height:100%; font-weight:bold; float:left">
+                                                        :
+                                                    </div>
+                                                    <div style="width:80px; height:100%; float:left;">
+                                                        2.12 TL
+                                                    </div>
+                                                    <div style="width:80px; height:100%; float:left;">
+                                                        2.15 TL
+                                                    </div>
+                                                </div>
+                                            </div>  
+                                        </div>
+                                        <hr />
+                                        <div style="width:100%; height:80px;">
+                                            <div style="width:100%; height:30px;font-weight:bold; text-align:center">
+                                                ZİYARETÇİ SAYISI
+                                                <hr />
+                                            </div>
+                                            <div style="width:100%;">
+                                                <div style="width:100%; height:25px;">
+                                                    <div style="width:140px; height:100%; font-weight:bold; float:left;">
+                                                        Online Ziyaretçi
+                                                    </div>
+                                                    <div style="width:8px; height:100%; font-weight:bold; float:left">
+                                                        :
+                                                    </div>
+                                                    <div style="width:60px; height:100%; float:left;">
+                                                        324
+                                                    </div>
+                                                </div>
+                                                <div style="width:100%; height:25px;">
+                                                    <div style="width:140px; height:100%; font-weight:bold; float:left;">
+                                                        Toplam Ziyaretçi
+                                                    </div>
+                                                    <div style="width:8px; height:100%; font-weight:bold; float:left">
+                                                        :
+                                                    </div>
+                                                    <div style="width:60px; height:100%; float:left;">
+                                                        2324
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                    </div>
+                                    <div style="width:730px;  padding-right:10px; height:100%; float:left; text-align:left;">
+                                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td background="Content/images/st.png">
+                                    <div align="center">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" id="table4">
+                                            <form id="form1" runat="server">
+                                                <div style="text-align:center">
+                                                    Alt
+                                                </div>
+                                            </form>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <script language="javascript">
+                                        if (AC_FL_RunContent == 0) {
+                                            alert("This page requires AC_RunActiveContent.js.");
+                                        } else {
+                                            AC_FL_RunContent(
+			'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0',
+			'width', '980',
+			'height', '50',
+			'src', 'alt',
+			'quality', 'high',
+			'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+			'align', 'middle',
+			'play', 'true',
+			'loop', 'true',
+			'scale', 'showall',
+			'wmode', 'transparent',
+			'devicefont', 'false',
+			'id', 'alt',
+			'bgcolor', '#000000',
+			'name', 'alt',
+			'menu', 'true',
+			'allowFullScreen', 'false',
+			'allowScriptAccess', 'sameDomain',
+			'movie', 'alt',
+			'salign', ''
+			); //end AC code
+                                        }
+                                    </script>
+                                    <noscript>
+                                        <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0"
+                                            width="980" height="50" id="alt" align="middle">
+                                            <param name="allowScriptAccess" value="sameDomain" />
+                                            <param name="allowFullScreen" value="false" />
+                                            <param name="movie" value="alt.swf" />
+                                            <param name="quality" value="high" />
+                                            <param name="wmode" value="transparent" />
+                                            <param name="bgcolor" value="#000000" />
+                                            <embed src="alt.swf" quality="high" wmode="transparent" bgcolor="#000000" width="980"
+                                                height="50" name="alt" align="middle" allowscriptaccess="sameDomain" allowfullscreen="false"
+                                                type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+                                        </object>
+                                    </noscript>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
